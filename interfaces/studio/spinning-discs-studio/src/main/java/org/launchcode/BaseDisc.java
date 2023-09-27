@@ -1,52 +1,36 @@
 package org.launchcode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class BaseDisc {
+//  Shared, and the same
+//  Share basic info
+
+//  name(String)
+//  capacity (int)
+//  content(ArrayLIst<String>)
 
     private String name;
-    private String discType;
+    private int capacity;
+    private List<String> content = new ArrayList();
 
-    private int spinRate; //RPMs
-
-    public BaseDisc(String name, String discType, int spinRate) {
+    public BaseDisc(String name, int capacity) {
         this.name = name;
-        this.discType = discType;
-        this.spinRate = spinRate;
+        this.capacity = capacity;
     }
 
-    public String getName() {
-        return name;
+    public BaseDisc(String name, int capacity, List<String> content) {
+        this(name,capacity);
+        this.content = content;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String writeData(String input){
+        return "Data written: " + input;
     }
 
-    public String getDiscType() {
-        return discType;
-    }
-
-    public void setDiscType(String discType) {
-        this.discType = discType;
-    }
-
-    public int getSpinRate() {
-        return spinRate;
-    }
-
-    public void setSpinRate(int spinRate) {
-        this.spinRate = spinRate;
-    }
-
-    @Override
-    public String toString() {
-        String newline = System.lineSeparator();
-        String asterisks = "*******";
-        return newline + asterisks + " " + asterisks +
-                "Disc Type: " + discType + newline +
-                "Spin Rate: " + spinRate + "RPM" + newline ;
-    }
-
-    void spinDisc () {
-        String newline = System.lineSeparator();
+    public String getBasicInfo(){
+        return "Name: " + name + " Capacity: " + capacity;
     }
 }
+

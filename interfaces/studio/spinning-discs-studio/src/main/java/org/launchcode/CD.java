@@ -1,30 +1,34 @@
 package org.launchcode;
 
-public class CD extends BaseDisc {
+// TODO: Implement your custom interface.
 
-    private String musician;
+import java.util.List;
+
+// TODO: Determine which fields, methods, and constructors can be extended from the base class and which ones
+//  need to be declared separately.
+public class CD extends BaseDisc implements OpticalDisc {
+
+    private String artist;
+    public CD(String name, int capacity, String artist) {
+        super(name, capacity);
+        this.artist = artist;
+    }
+
+//    public CD(String name, int capacity, List<String> content) {
+//        super(name, capacity, content);
+//    }
+
     @Override
-    public void spin() {
-
+    public void spinDisc() {
+        System.out.println("A CD spins at 200-500 rpm.");
     }
 
     @Override
-    public boolean storeData() {
-        //sdfhsdjkj
-        return false;
+    public void readData() {
+        System.out.println("Let's Rock!");
     }
 
-    @Override
-    public double writtenByLaser() {
-        return 0;
+    public void playSong(){
+        System.out.println("Playing song by " + artist);
     }
-
-    @Override
-    public boolean readByLaser() {
-        return false;
-    }
-    // TODO: Implement your custom interface.
-
-    // TODO: Determine which fields, methods, and constructors can be extended from the base class and which ones
-    //  need to be declared separately.
 }
